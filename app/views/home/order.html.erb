@@ -1,0 +1,103 @@
+<% content_for(:title, 'Submit Proofreading Order') %>
+<!--=== Breadcrumbs ===-->
+<div class="breadcrumbs margin-bottom-40">
+    <div class="container">
+        <h1 class="pull-left">Order</h1>
+        <ul class="pull-right breadcrumb">
+            <li><a href="/">Home</a></li>
+            <li class="active">Order</li>
+        </ul>
+    </div><!--/container-->
+</div><!--/breadcrumbs-->
+<!--=== End Breadcrumbs ===-->
+
+<!--=== Content Part ===-->
+<div class="container">
+    <div class="row">        
+    <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+            <!--Horizontal Form-->
+            <div class="panel panel-green margin-bottom-40">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><i class="icon-tasks"></i> Order Now</h3>
+                </div>
+                <div class="panel-body">                                                      
+                    <%= form_tag({action: :order}, multipart: true,class: "form-horizontal") do %>
+                        <div class="form-group">
+                            <label for="inputWordCount" class="col-lg-4 control-label">Word Count</label>
+                            <div class="col-lg-8">
+                                <input type="text" class="form-control" id="inputWordCount" autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPrice" class="col-lg-4 control-label">Price</label>
+                            <div class="col-lg-8">
+                                <input type="text" class="form-control" id="inputPrice" placeholder="0" readonly>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="deadline" class="col-lg-4 control-label">Delivery Deadline</label>
+                            <div class="col-lg-8">
+                                <input type="text" class="form-control" id="deadline" readonly>
+                            </div>
+                        </div>
+                         <div class="form-group">
+                            <label for="inputName" class="col-lg-4 control-label">Your Name</label>
+                            <div class="col-lg-8">
+                                <input type="email" class="form-control" id="inputName">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail1" class="col-lg-4 control-label">Your Email</label>
+                            <div class="col-lg-8">
+                                <input type="email" class="form-control" id="inputEmail1">
+                            </div>
+                        </div>    
+                        <div class="form-group">
+                            <label for="inputStyle" class="col-lg-4 control-label">English Style</label>
+                            <div class="col-lg-8">
+                                <select id="inputStyle" class="form-control">
+                                    <option>British</option>
+                                    <option>American</option>
+                                </select>                    
+                            </div>
+                        </div>  
+                        <div class="form-group">
+                            <label for="inputDocument" class="col-lg-4 control-label">Document</label>
+                            <div class="col-lg-8">
+                                <%= file_field_tag 'document' %>
+                            </div>
+                        </div>                            
+                        <div class="form-group">
+                            <label for="inputComments" class="col-lg-4 control-label">Comments/Requirements</label>
+                            <div class="col-lg-8">
+                                <textarea id="inputComments" class="form-control" rows="4"></textarea>                  
+                            </div>
+                        </div>  
+                        <div class="form-group">
+                            <div class="col-lg-offset-4 col-lg-8">
+                                <button type="submit" class="btn-u btn-u-green">Place Order</button>
+                            </div>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+            <!--End Horizontal Form-->
+            </div>
+    </div>
+</div><!--/container-->		
+<!--=== End Content Part ===-->
+<script type="text/javascript">
+jQuery(document).ready(function() {
+    $( "#inputWordCount" ).bind("change paste keyup", function() {
+        wordCount = $(this).val();
+        price = PriceCalculator.price(wordCount);
+        time = TimeCalculator.calc(wordCount);
+        formattedTime = TimeCalculator.fromNow(time)
+        $("#inputPrice").val(price);
+        $("#deadline").val(formattedTime);
+    });
+        formattedTime = TimeCalculator.fromNow(24)
+        $("#deadline").val(formattedTime);
+    });
+
+</script>

@@ -1,5 +1,16 @@
 class HomeController < ApplicationController
   def index
-    @users = User.all
+  end
+  
+  def faq
+  end
+
+	def prices
+  end
+
+  def contact
+  end
+
+  def order
   end
 end

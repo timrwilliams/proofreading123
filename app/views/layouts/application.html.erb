@@ -1,20 +1,42 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->  
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->  
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->  
+<head>
+    <title><%= content_for?(:title) ? yield(:title)+ " | " : "" %> Proofreading123</title>
+
+    <!-- Meta -->
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= content_for?(:title) ? yield(:title) : "Proofreading123" %></title>
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Proofreading123" %>">
+    <meta name="author" content="">
     <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
     <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-    <%= csrf_meta_tags %>
-  </head>
-  <body>
-    <header>
+    <%= yield :head %>
+    <%= csrf_meta_tags %>   
+</head> 
+
+<body>
       <%= render 'layouts/navigation' %>
-    </header>
     <main role="main">
        <%= render 'layouts/messages' %>
        <%= yield %>
     </main>
-  </body>
-</html>
+    <footer>
+      <%= render 'layouts/footer' %>
+    </footer>
+
+<!-- JS Page Level -->           
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+        App.init();
+        App.initSliders();
+        App.initBxSlider();
+    });
+</script>
+<!--[if lt IE 9]>
+  <script src="assets/plugins/respond.js"></script>
+<![endif]-->    
+
+</body>
+</html> 

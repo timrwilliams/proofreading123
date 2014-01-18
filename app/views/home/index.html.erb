@@ -1,4 +1,256 @@
-<h3>Home</h3>
-<% @users.each do |user| %>
-  <p>User: <%=link_to user.name, user %></p>
+<% content_for(:title, 'English Proofreading') %>
+<% content_for :head do %>
+    <%= javascript_include_tag "horizontal-parallax/horizontal-parallax", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "horizontal-parallax/sequence.jquery-min", "data-turbolinks-track" => true %>
 <% end %>
+<!--=== Slider ===-->
+<div id="sequence-theme" class="sequence-inner">
+    <div id="sequence">
+        <img class="prev" src="assets/plugins/horizontal-parallax/bt-prev1.png" alt="Previous" />
+        <img class="next" src="assets/plugins/horizontal-parallax/bt-next1.png" alt="Next" />
+        <ul>
+            <li class="animate-in">
+                <div class="info">
+                    <h2>Quicket turnaround</h2>
+                    <p><strong>24 hour</strong> service guaranteed for under 6,000 words</p>
+                </div>
+                <img class="balloon" src="assets/plugins/horizontal-parallax/clock2.png" alt="Clock" />
+            </li>
+            <li>
+                <div class="info">
+                    <h2>Experienced Proofreaders</h2>
+                    <p>Natural English Speaking professionals from top universities</p>
+                </div>
+                <img class="balloon" src="assets/plugins/horizontal-parallax/oxford-dictionary1.png" alt="Aeroplane" />
+            </li>            
+            <li>
+                <div class="info">
+                    <h2>Great value</h2>
+                    <p>Proofreading from only £9.50 per 1,000 words</p>
+                </div>
+                <img class="kite" src="assets/plugins/horizontal-parallax/kite.png" alt="Kite" />
+            </li>
+        </ul>
+    </div>
+</div><!--/sequence-theme-->
+<!--=== End Slider ===-->
+
+<!--=== Purchase Block ===-->
+<div class="purchase">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <span>Proofreading123 is the UK's premier English language proofreading service.</span>
+                <p>Our team of dedicated proofreading professionals are waiting to receive your document now. We offer a fast, affordable service with a 100% money back guarantee if you are not satisfied.</p>
+            </div>            
+            <div class="col-md-3">
+            <!--Horizontal Form-->
+            <div class="panel panel-green">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><i class="icon-shopping-cart"></i> Quick Quote</h3>
+                </div>
+                <div class="panel-body">                                                      
+                <%= form_tag("/order", method: "get", class:"form-horizontal") do %>
+                        <div class="form-group">
+                            <label for="inputWordCount" class="col-md-6 control-label">Word Count</label>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" id="inputWordCount" placeholder="0" autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPrice" class="col-md-6 control-label">Price</label>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" id="inputPrice" placeholder="£0.00" readonly="true">
+                            </div>
+                        </div>                        
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <button type="submit" class="btn-u btn-large btn-u-green">Order Now</button>
+                            </div>
+                        </div>
+                        <div id="turnaround">
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+            <!--End Horizontal Form-->
+            </div>
+        </div>
+    </div>
+</div><!--/row-->
+<!-- End Purchase Block -->
+
+<!--=== Content Part ===-->
+<div class="container"> 
+    <div class="row">
+        <div class="col-md-9">
+            <!-- Welcome Block -->
+            <div class="headline"><h2>Our Proofreading Services</h2></div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <img class="img-responsive margin-bottom-20" src="assets/main/6.jpg" alt="" />
+                </div>
+                <div class="col-sm-8">
+                    <p>We work with a wide range of customers including:</p>
+                    <ul class="list-unstyled margin-bottom-20">
+                        <li><i class="icon-ok color-green"></i> ESL/EFL Students</li>
+                        <li><i class="icon-ok color-green"></i> Academics</li>
+                        <li><i class="icon-ok color-green"></i> Businesses & Organisations</li>
+                        <li><i class="icon-ok color-green"></i> Individuals</li>
+                    </ul>                    
+                </div>
+            </div>
+
+            <blockquote class="hero-unify margin-bottom-30">
+                <p>We pride ourselves on the level of service we provide and delighting our customers with every piece of work. Our proofreading team are truly exceptional and ready to take on any challenge you set them.</p>
+                <small>CEO, Tim Williams</small>
+            </blockquote>
+            <!-- //End Welcome Block -->           
+            
+        </div>
+        
+        <div class="col-md-3">            
+            <!-- Choose Us -->            
+            <div class="who margin-bottom-30">
+                <div class="headline"><h3>Why Choose Us</h3></div>
+                <ul class="list-unstyled">
+                    <li><a href="#"><i class="icon-fixed-width icon-globe"></i>Natural English speaking proofreaders</a></li>                    
+                    <li><a href="#"><i class="icon-fixed-width icon-thumbs-up"></i>Work overseen by senior editing team</a></li>
+                    <li><a href="#"><i class="icon-fixed-width icon-lock"></i>Secure payment</a></li>
+                    <li><a href="#"><i class="icon-fixed-width icon-gbp"></i>100% money back guarantee</a></li>
+                </ul>
+            </div><!--/who-->                        
+            <!-- //End Choose Us -->
+
+        </div>
+    </div><!--/row-->
+    
+    <!-- Our Clients -->
+    <div id="clients-flexslider" class="flexslider home clients">
+        <div class="headline"><h2>Our Clients</h2></div>    
+        <ul class="slides">
+            <li>
+                <a href="#">
+                    <img src="assets/clients/hp_grey.png" alt="" /> 
+                    <img src="assets/clients/hp.png" class="color-img" alt="" />
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="assets/clients/igneus_grey.png" alt="" /> 
+                    <img src="assets/clients/igneus.png" class="color-img" alt="" />
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="assets/clients/vadafone_grey.png" alt="" /> 
+                    <img src="assets/clients/vadafone.png" class="color-img" alt="" />
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="assets/clients/walmart_grey.png" alt="" /> 
+                    <img src="assets/clients/walmart.png" class="color-img" alt="" />
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="assets/clients/shell_grey.png" alt="" /> 
+                    <img src="assets/clients/shell.png" class="color-img" alt="" />
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="assets/clients/natural_grey.png" alt="" /> 
+                    <img src="assets/clients/natural.png" class="color-img" alt="" />
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="assets/clients/aztec_grey.png" alt="" /> 
+                    <img src="assets/clients/aztec.png" class="color-img" alt="" />
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="assets/clients/gamescast_grey.png" alt="" /> 
+                    <img src="assets/clients/gamescast.png" class="color-img" alt="" />
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="assets/clients/cisco_grey.png" alt="" /> 
+                    <img src="assets/clients/cisco.png" class="color-img" alt="" />
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="assets/clients/everyday_grey.png" alt="" /> 
+                    <img src="assets/clients/everyday.png" class="color-img" alt="" />
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="assets/clients/cocacola_grey.png" alt="" /> 
+                    <img src="assets/clients/cocacola.png" class="color-img" alt="" />
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="assets/clients/spinworkx_grey.png" alt="" /> 
+                    <img src="assets/clients/spinworkx.png" class="color-img" alt="" />
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="assets/clients/shell_grey.png" alt="" /> 
+                    <img src="assets/clients/shell.png" class="color-img" alt="" />
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="assets/clients/natural_grey.png" alt="" /> 
+                    <img src="assets/clients/natural.png" class="color-img" alt="" />
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="assets/clients/gamescast_grey.png" alt="" /> 
+                    <img src="assets/clients/gamescast.png" class="color-img" alt="" />
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="assets/clients/everyday_grey.png" alt="" /> 
+                    <img src="assets/clients/everyday.png" class="color-img" alt="" />
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="assets/clients/spinworkx_grey.png" alt="" /> 
+                    <img src="assets/clients/spinworkx.png" class="color-img" alt="" />
+                </a>
+            </li>
+        </ul>
+    </div><!--/flexslider-->
+    <!-- //End Our Clients -->
+</div><!--/container-->     
+<!-- End Content Part -->
+<script type="text/javascript">
+jQuery(document).ready(function() {
+    $( "#inputWordCount" ).bind("change paste keyup", function() {
+        wordCount = $(this).val();
+        price = PriceCalculator.price(wordCount);
+        time = TimeCalculator.calc(wordCount);
+        formattedTime = TimeCalculator.format(time)
+        turnaround = "";
+        if(formattedTime){
+            turnaround = formattedTime +" turnaround guaranteed!";
+        }
+        $("#inputPrice").val(price);
+        $("#turnaround").html(turnaround);
+    });
+    
+    });
+
+</script>
