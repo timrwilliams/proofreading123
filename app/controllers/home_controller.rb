@@ -13,4 +13,9 @@ class HomeController < ApplicationController
 
   def order
   end
+
+  def echo
+    @msg = params[:msg]
+    render "home/echo", :layout => false
+  end
 end
