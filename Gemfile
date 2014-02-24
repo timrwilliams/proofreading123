@@ -13,6 +13,7 @@ gem 'devise'
 gem 'figaro'
 gem 'mysql2'
 gem 'rolify'
+gem 'socksify'
 gem 'therubyracer', :platform=>:ruby
 group :development do
   gem 'better_errors'
@@ -39,3 +40,5 @@ group :test do
   gem 'database_cleaner', '1.0.1'
   gem 'email_spec'
 end
+
+gem "geocoder"
