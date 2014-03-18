@@ -7,4 +7,5 @@ Proofreading123::Application.routes.draw do
 	match "/order" => 'home#order', :via => [:get,:post]
 	match "/contact" => 'home#contact', :via => :get
 	match "/echo" => 'home#echo', :via => :get
+  match "/blog/:post_title/" => 'blogs#post', :via => :get
 end

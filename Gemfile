@@ -14,6 +14,7 @@ gem 'figaro'
 gem 'mysql2'
 gem 'rolify'
 gem 'socksify'
+  gem 'faker'
 gem 'therubyracer', :platform=>:ruby
 group :development do
   gem 'better_errors'
@@ -41,4 +42,4 @@ group :test do
   gem 'email_spec'
 end
 
-gem "geocoder"
+gem "geocoder", '1.1.8'
